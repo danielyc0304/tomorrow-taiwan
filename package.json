@@ -6,7 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/@digitalroute/cz-conventional-changelog-for-jira",
+      "skipScope": false,
+      "jiraPrefix": "TT",
+      "jiraLocation": "post-body",
+      "jiraPrepend": "Refs: ",
+      "exclamationMark": true
+    }
   },
   "dependencies": {
     "next": "16.3.3",
@@ -14,10 +25,12 @@
     "react-dom": "19.2.8"
   },
   "devDependencies": {
+    "@digitalroute/cz-conventional-changelog-for-jira": "^8.0.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "commitizen": "^4.3.2",
     "eslint": "^9",
     "eslint-config-next": "16.3.3",
     "tailwindcss": "^4",
