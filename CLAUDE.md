@@ -13,12 +13,26 @@ pnpm dev            # next dev (http://localhost:3000)
 pnpm build          # next build
 pnpm start          # serve the production build
 pnpm lint           # eslint (flat config, no args needed)
+pnpm test           # vitest, watch mode
 pnpm commit         # commitizen prompt — the intended way to commit
 ```
 
 Type checking: `pnpm exec tsc --noEmit --incremental false` (the project sets `"incremental": true`, so the flag keeps `tsconfig.tsbuildinfo` out of the tree).
 
-There is no test framework wired up yet.
+`pnpm lint` currently reports 29 warnings and 0 errors, all from the untouched `create-next-app` markup in `app/page.tsx` and `app/layout.tsx` (Tailwind class ordering and arbitrary-value canonicalization). That is the pre-existing baseline, not something you introduced — but don't add to it.
+
+## Testing
+
+Vitest, configured in `vitest.config.mts`: `jsdom` environment, `@vitejs/plugin-react` for JSX, and `resolve.tsconfigPaths` (Vitest's own option — no plugin involved) so the `@/*` alias resolves in tests. `@testing-library/react` is available; there is no global setup file, so each test imports what it needs.
+
+```bash
+pnpm test                                # watch mode
+pnpm exec vitest run                     # single pass
+pnpm exec vitest run app/page.test.tsx   # one file
+pnpm exec vitest run -t "renders heading" # one test by name
+```
+
+No tests exist yet, so `vitest run` exits 1 with "No test files found" until the first one lands. Discovery pattern is `**/*.{test,spec}.?(c|m)[jt]s?(x)`.
 
 ## Commit workflow
 
@@ -33,6 +47,6 @@ The reference is a `TT-` Jira key (`issuePrefixes: ["TT-"]`) placed in the post-
 
 - **Next.js 16 App Router** (`app/`), React 19. Route/layout prop types come from Next's generated globals — e.g. `RootLayout` is typed `LayoutProps<"/">`, not a hand-written props interface. Read `node_modules/next/dist/docs/` before writing framework code (see AGENTS.md).
 - **Tailwind v4**, CSS-first: there is no `tailwind.config.*`. Theme tokens live in `@theme inline` inside `app/globals.css`, wired through PostCSS via `@tailwindcss/postcss`. `.prettierrc` points `tailwindStylesheet` at that file so class sorting resolves the custom theme.
-- **Prettier plugins**: `organize-imports` (import order is enforced, don't hand-sort) and `tailwindcss` (class order).
-- **ESLint flat config** composes `eslint-config-next` core-web-vitals + typescript, with `eslint-config-prettier` last. `eslint.config.mjs` re-declares the default ignores because adding `globalIgnores` overrides them.
+- **Prettier plugins**: `organize-imports` (import order is enforced, don't hand-sort) and `tailwindcss` (class order). `organizeImportsSkipDestructiveCodeActions: true` keeps it from deleting imports it thinks are unused, so a formatting pass never silently removes code.
+- **ESLint flat config** composes `eslint-config-next` core-web-vitals + typescript, then `eslint-plugin-tailwindcss` (pointed at `app/globals.css` via `settings.tailwindcss.cssConfigPath`, since there is no `tailwind.config.*` for it to find), with `eslint-config-prettier` last. `eslint.config.mjs` re-declares the default ignores because adding `globalIgnores` overrides them.
 - Path alias `@/*` maps to the repo root.
