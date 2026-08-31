@@ -1,10 +1,22 @@
-import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import eslintConfigPrettier from "eslint-config-prettier";
+import eslintPluginTailwindcss from "eslint-plugin-tailwindcss";
+import { defineConfig, globalIgnores } from "eslint/config";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  eslintPluginTailwindcss.configs["flat/recommended"] ||
+    eslintPluginTailwindcss.configs.recommended,
+  {
+    settings: {
+      tailwindcss:
+        /** @type {import('eslint-plugin-tailwindcss').PluginSettings} */
+        ({ cssConfigPath: "./app/globals.css" }),
+    },
+  },
+  eslintConfigPrettier,
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
