@@ -11,6 +11,12 @@
     "commit": "git-cz",
     "prepare": "husky"
   },
+  "lint-staged": {
+    "**/*": [
+      "eslint --fix",
+      "prettier --write --ignore-unknown"
+    ]
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/@digitalroute/cz-conventional-changelog-for-jira",
@@ -20,12 +26,6 @@
       "jiraPrepend": "Refs: ",
       "exclamationMark": true
     }
-  },
-  "lint-staged": {
-    "**/*": [
-      "eslint --fix",
-      "prettier --write --ignore-unknown"
-    ]
   },
   "dependencies": {
     "next": "16.3.3",
