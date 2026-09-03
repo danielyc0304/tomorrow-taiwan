@@ -61,6 +61,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      deployments: write
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/setup@v2
@@ -71,6 +72,12 @@ jobs:
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
       - name: Build Project Artifacts
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+      - uses: chrnorm/deployment-action@v2
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: "${{ github.token }}"
+          environment: Preview
       - name: Deploy Project Artifacts to Vercel
         id: deploy
         env:
@@ -84,6 +91,21 @@ jobs:
           echo "url=$url" >> "$GITHUB_OUTPUT"
           echo "sha=${sha:0:7}" >> "$GITHUB_OUTPUT"
           echo "time=$(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> "$GITHUB_OUTPUT"
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: "${{ github.token }}"
+          environment-url: ${{ steps.deploy.outputs.url }}
+          state: "success"
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+      - name: Update deployment status (failure)
+        if: failure() && steps.deployment.outputs.deployment_id != ''
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: "${{ github.token }}"
+          state: "failure"
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
       - name: Find Comment
         uses: peter-evans/find-comment@v4
         id: fc
