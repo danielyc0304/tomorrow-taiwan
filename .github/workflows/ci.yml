@@ -82,11 +82,13 @@ jobs:
         id: deploy
         env:
           HEAD_REF: ${{ github.head_ref }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
           url=$(vercel deploy --prebuilt \
                   --token=${{ secrets.VERCEL_TOKEN }} \
                   -m githubDeployment=1 \
-                  -m githubCommitRef="$HEAD_REF")
+                  -m githubCommitRef="$HEAD_REF" \
+                  -m githubCommitMessage="$PR_TITLE")
           sha="${{ github.event.pull_request.head.sha }}"
           echo "url=$url" >> "$GITHUB_OUTPUT"
           echo "sha=${sha:0:7}" >> "$GITHUB_OUTPUT"
