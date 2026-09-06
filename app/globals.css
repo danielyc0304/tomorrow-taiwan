@@ -4,6 +4,11 @@
 @theme inline {
   --color-bg: var(--color-bg);
   --color-divider: var(--color-divider);
+  --color-neutral-600: var(--color-neutral-600);
+
+  --font-heading: var(--font-heading);
+
+  --leading-1.05: 1.05;
 }
 
 body {
