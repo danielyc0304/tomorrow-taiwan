@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @import "./styles.css" layer(components);
 
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-divider: var(--color-divider);
+}
+
 body {
   font-variant-numeric: tabular-nums;
 }
