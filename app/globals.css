@@ -1,6 +1,24 @@
 @import "tailwindcss";
 @import "./styles.css" layer(components);
 
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-text: var(--color-text);
+  --color-accent: var(--color-accent);
+  --color-divider: var(--color-divider);
+  --color-neutral-600: var(--color-neutral-600);
+  --color-neutral-700: var(--color-neutral-700);
+
+  --font-heading: var(--font-heading);
+
+  --breakpoint-sm: 560px;
+  --breakpoint-md: 720px;
+  --breakpoint-lg: 900px;
+  --breakpoint-xl: 1080px;
+
+  --leading-1.05: 1.05;
+}
+
 body {
   font-variant-numeric: tabular-nums;
 }

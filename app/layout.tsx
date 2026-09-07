@@ -1,3 +1,4 @@
+import Header from "@/components/header/header";
 import type { Metadata } from "next";
 import { Archivo, Noto_Sans_TC } from "next/font/google";
 import "./globals.css";
@@ -27,7 +28,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="zh-TW"
       className={`${archivo.variable} ${notoSansTC.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-dvh flex-col">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
