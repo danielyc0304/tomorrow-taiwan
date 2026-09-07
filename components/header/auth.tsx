@@ -7,7 +7,7 @@ export default function Auth() {
   const [isLogin, setIsLogin] = useState<boolean>(false);
 
   return (
-    <div className="flex items-center gap-2 border-l-2 border-l-divider pl-4">
+    <div className="ml-auto flex items-center gap-2 border-l-0 border-l-divider pl-0 sm:ml-0 sm:border-l-2 sm:pl-4">
       {isLogin ? (
         <Link
           href="/me"
@@ -20,7 +20,7 @@ export default function Auth() {
         </Link>
       ) : (
         <>
-          <span className="text-[12px] text-neutral-700">
+          <span className="hidden text-[12px] text-neutral-700 md:block">
             登入後可投稿與追蹤事件
           </span>
           <Link href="/login" className="btn btn-secondary">
