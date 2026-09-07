@@ -3,6 +3,8 @@
 
 @theme inline {
   --color-bg: var(--color-bg);
+  --color-text: var(--color-text);
+  --color-accent: var(--color-accent);
   --color-divider: var(--color-divider);
   --color-neutral-600: var(--color-neutral-600);
 

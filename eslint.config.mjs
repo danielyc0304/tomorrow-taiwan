@@ -10,10 +10,17 @@ const eslintConfig = defineConfig([
   eslintPluginTailwindcss.configs["flat/recommended"] ||
     eslintPluginTailwindcss.configs.recommended,
   {
+    plugins: { tailwindcss: eslintPluginTailwindcss },
     settings: {
       tailwindcss:
         /** @type {import('eslint-plugin-tailwindcss').PluginSettings} */
         ({ cssConfigPath: "./app/globals.css" }),
+    },
+    rules: {
+      "tailwindcss/no-custom-classname": [
+        "warn",
+        { whitelist: ["btn(-(ghost))?"] },
+      ],
     },
   },
   eslintConfigPrettier,
