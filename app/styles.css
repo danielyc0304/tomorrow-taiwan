@@ -135,8 +135,11 @@ p {
   margin: 0 0 var(--space-3);
 }
 a {
+  color: var(--color-accent-700);
+  text-decoration: none;
+}
+a:hover {
   color: var(--color-accent);
-  text-underline-offset: 3px;
 }
 img {
   display: block;
