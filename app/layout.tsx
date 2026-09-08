@@ -1,3 +1,4 @@
+import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import type { Metadata } from "next";
 import { Archivo, Noto_Sans_TC } from "next/font/google";
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-dvh flex-col">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
