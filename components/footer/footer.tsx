@@ -32,7 +32,7 @@ const links: { category: string; items: { label: string; href: string }[] }[] =
 export default function Footer() {
   return (
     <footer className="mt-8 border-t-2 border-t-divider">
-      <div className="mx-auto grid max-w-7xl grid-cols-4 gap-6 p-6 text-[13px] text-neutral-700">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 p-6 text-[13px] text-neutral-700 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
         <Brand />
         {links.map((linkGroup) => (
           <Links
