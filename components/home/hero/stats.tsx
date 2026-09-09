@@ -8,7 +8,7 @@ const stats: { label: string; value: number }[] = [
 
 export default function Stats() {
   return (
-    <div className="grid grid-cols-3 gap-4 border-t-2 border-t-divider pt-4">
+    <div className="grid grid-cols-3 gap-3 border-t-2 border-t-divider pt-4 sm:gap-4">
       {stats.map((stat) => (
         <Stat key={stat.label} label={stat.label} value={stat.value} />
       ))}
