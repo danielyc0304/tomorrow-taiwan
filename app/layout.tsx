@@ -1,5 +1,5 @@
-import Footer from "@/components/footer/footer";
-import Header from "@/components/header/header";
+import Footer from "@/components/shared/footer/footer";
+import Header from "@/components/shared/header/header";
 import type { Metadata } from "next";
 import { Archivo, Noto_Sans_TC } from "next/font/google";
 import "./globals.css";
