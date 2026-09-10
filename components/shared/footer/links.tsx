@@ -4,6 +4,7 @@ interface LinksProps {
   category: string;
   items: { label: string; href: string }[];
 }
+
 export default function Links({ category, items }: LinksProps) {
   return (
     <div className="flex flex-col gap-1.5">
