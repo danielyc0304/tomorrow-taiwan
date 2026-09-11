@@ -23,7 +23,7 @@ export default function Item({ date, type, title, description }: ItemProps) {
   return (
     <Link
       href="/"
-      className="grid cursor-pointer grid-cols-[96px_minmax(0,1fr)_auto] items-baseline gap-4 border-t border-t-[rgba(255,255,255,0.35)] py-3 text-inherit hover:bg-[rgba(255,255,255,0.12)]"
+      className="grid cursor-pointer grid-cols-1 items-baseline gap-1.5 border-t border-t-[rgba(255,255,255,0.35)] py-3 text-inherit hover:bg-[rgba(255,255,255,0.12)] md:grid-cols-[96px_minmax(0,1fr)_auto] md:gap-4"
     >
       <span className="text-xs tabular-nums opacity-85">
         {formatDate(date)}
@@ -34,7 +34,7 @@ export default function Item({ date, type, title, description }: ItemProps) {
         </span>
         <span className="opacity-90">　 {description}</span>
       </span>
-      <span className="text-[11px] tracking-[0.08em] whitespace-nowrap uppercase opacity-85">
+      <span className="-order-1 text-[11px] tracking-[0.08em] whitespace-nowrap uppercase opacity-85 md:order-0">
         {typeLabelMap[type]}
       </span>
     </Link>
