@@ -2,6 +2,7 @@ interface StatProps {
   label: string;
   value: number;
 }
+
 export default function Stat({ label, value }: StatProps) {
   return (
     <div>
