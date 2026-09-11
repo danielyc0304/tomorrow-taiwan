@@ -24,3 +24,10 @@
   --leading-1.05: 1.05;
   --leading-1.6: 1.6;
 }
+
+@layer base {
+  button {
+    background-color: revert;
+    border: revert;
+  }
+}
