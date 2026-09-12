@@ -1,4 +1,5 @@
 import Digest from "@/components/home/digest/digest";
+import Event from "@/components/home/event/event";
 import Hero from "@/components/home/hero/hero";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
       <div>
         <Hero />
         <Digest />
+        <Event />
       </div>
     </div>
   );
