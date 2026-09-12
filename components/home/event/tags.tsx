@@ -15,7 +15,7 @@ interface TagsProps {
 
 export default function Tags({ tags }: TagsProps) {
   return (
-    <div className="flex flex-wrap gap-1.5">
+    <div className="col-auto flex flex-wrap gap-1.5 md:col-2 xl:col-auto">
       {tags.map((tag) => (
         <span key={tag} className="tag tag-outline text-[11px]">
           {typeLabelMap[tag]}

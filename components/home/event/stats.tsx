@@ -17,7 +17,7 @@ export default function Stats({
   const [isTracking, setIsTracking] = useState<boolean>(tracking);
 
   return (
-    <div className="flex flex-col items-start gap-2">
+    <div className="col-auto row-auto flex flex-col items-start gap-2 md:col-3 md:row-span-2 md:row-start-1 xl:col-auto xl:row-auto">
       <div className="font-heading text-[15px] font-extrabold">
         {ai + reader} 項改變
       </div>

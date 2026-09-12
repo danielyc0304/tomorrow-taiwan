@@ -23,7 +23,7 @@ export default function Item({
   isTracking,
 }: ItemProps) {
   return (
-    <div className="grid cursor-pointer grid-cols-[150px_minmax(0,1fr)_210px_132px] items-start gap-6 border-b-2 border-b-divider py-6 hover:bg-neutral-100">
+    <div className="grid cursor-pointer grid-cols-1 items-start gap-3 border-b-2 border-b-divider py-6 hover:bg-neutral-100 md:grid-cols-[120px_minmax(0,1fr)_150px] md:gap-4 xl:grid-cols-[150px_minmax(0,1fr)_210px_132px] xl:gap-6">
       <Date startDate={startDate} endDate={endDate} />
       <Content title={title} description={description} />
       <Tags tags={tags} />
