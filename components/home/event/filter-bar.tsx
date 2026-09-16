@@ -20,7 +20,7 @@ export default function FilterBar() {
 
   return (
     <div className="border-y-2 border-y-divider bg-neutral-100">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-4 px-6 py-3">
+      <div className="mx-auto my-0 flex max-w-7xl flex-wrap items-center gap-4 px-6 py-3">
         <span className="text-[11px] font-bold tracking-[0.14em] text-neutral-600 uppercase">
           依改變類型篩選
         </span>
