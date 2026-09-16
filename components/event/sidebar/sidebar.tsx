@@ -1,6 +1,8 @@
 import Details from "./details";
+import Tags from "./tags";
 
 interface SidebarProps {
+  tags: string[];
   startDate: string;
   endDate: string;
   contributor: { ai: number; reader: number };
@@ -8,6 +10,7 @@ interface SidebarProps {
 }
 
 export default function Sidebar({
+  tags,
   startDate,
   endDate,
   contributor,
@@ -21,6 +24,7 @@ export default function Sidebar({
         contributor={contributor}
         lastUpdatedAt={lastUpdatedAt}
       />
+      <Tags tags={tags} />
     </aside>
   );
 }

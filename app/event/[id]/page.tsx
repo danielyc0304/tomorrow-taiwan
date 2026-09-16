@@ -4,6 +4,7 @@ import Sidebar from "@/components/event/sidebar/sidebar";
 const data: {
   title: string;
   description: string;
+  tags: string[];
   changes: {
     date: string;
     type: string;
@@ -17,6 +18,7 @@ const data: {
   title: "國會改革法案與立法院外集會",
   description:
     "2024 年 5 月立法院審議國會改革法案，議場衝突與院外集會接連發生。法案三讀後由多個機關聲請釋憲，憲法法庭於同年 10 月作出判決，宣告多數新增條文違憲或部分違憲。",
+  tags: ["action", "judiciary", "legislation", "media"],
   changes: [
     {
       date: "2024-05-17",
@@ -72,6 +74,7 @@ export default function Event() {
       <div className="border-t-2 border-t-divider">
         <div className="mx-auto my-0 grid max-w-7xl grid-cols-[280px_minmax(0,1fr)] gap-8 px-6 pt-0 pb-8">
           <Sidebar
+            tags={data.tags}
             startDate={startDate}
             endDate={endDate}
             contributor={contributor}
