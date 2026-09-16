@@ -1,4 +1,5 @@
 import Hero from "@/components/event/hero/hero";
+import Sidebar from "@/components/event/sidebar/sidebar";
 
 const data = {
   title: "國會改革法案與立法院外集會",
@@ -46,6 +47,11 @@ export default function Event() {
         title={data.title}
         description={data.description}
       />
+      <div className="border-t-2 border-t-divider">
+        <div className="mx-auto my-0 grid max-w-7xl grid-cols-[280px_minmax(0,1fr)] gap-8 px-6 pt-0 pb-8">
+          <Sidebar />
+        </div>
+      </div>
     </div>
   );
 }
