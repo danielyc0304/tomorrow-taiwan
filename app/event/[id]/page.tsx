@@ -1,7 +1,19 @@
 import Hero from "@/components/event/hero/hero";
 import Sidebar from "@/components/event/sidebar/sidebar";
 
-const data = {
+const data: {
+  title: string;
+  description: string;
+  changes: {
+    date: string;
+    type: string;
+    contributor: "ai" | "reader";
+    title: string;
+    description: string;
+    sources: { name: string; url: string }[];
+    updatedAt: string;
+  }[];
+} = {
   title: "國會改革法案與立法院外集會",
   description:
     "2024 年 5 月立法院審議國會改革法案，議場衝突與院外集會接連發生。法案三讀後由多個機關聲請釋憲，憲法法庭於同年 10 月作出判決，宣告多數新增條文違憲或部分違憲。",
@@ -38,6 +50,16 @@ const data = {
 export default function Event() {
   const startDate = data.changes[0].date;
   const endDate = data.changes[data.changes.length - 1].date;
+  const contributor = data.changes.reduce<{ ai: number; reader: number }>(
+    (counts, change) => {
+      counts[change.contributor]++;
+      return counts;
+    },
+    { ai: 0, reader: 0 },
+  );
+  const lastUpdatedAt = data.changes.map((change) => change.updatedAt).sort()[
+    data.changes.length - 1
+  ];
 
   return (
     <div>
@@ -49,7 +71,12 @@ export default function Event() {
       />
       <div className="border-t-2 border-t-divider">
         <div className="mx-auto my-0 grid max-w-7xl grid-cols-[280px_minmax(0,1fr)] gap-8 px-6 pt-0 pb-8">
-          <Sidebar />
+          <Sidebar
+            startDate={startDate}
+            endDate={endDate}
+            contributor={contributor}
+            lastUpdatedAt={lastUpdatedAt}
+          />
         </div>
       </div>
     </div>
