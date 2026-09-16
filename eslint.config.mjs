@@ -19,7 +19,12 @@ const eslintConfig = defineConfig([
     rules: {
       "tailwindcss/no-custom-classname": [
         "warn",
-        { whitelist: ["btn(-(ghost|secondary))?", "tag(-(accent|outline))?"] },
+        {
+          whitelist: [
+            "btn(-(ghost|primary|secondary))?",
+            "tag(-(accent|outline))?",
+          ],
+        },
       ],
     },
   },

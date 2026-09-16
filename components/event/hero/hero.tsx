@@ -1,4 +1,5 @@
 import { ChevronLeft } from "lucide-react";
+import CTA from "./cta";
 import Title from "./title";
 
 interface HeroProps {
@@ -27,6 +28,7 @@ export default function Hero({
           title={title}
           description={description}
         />
+        <CTA />
       </div>
     </div>
   );
