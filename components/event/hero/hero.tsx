@@ -21,7 +21,7 @@ export default function Hero({
         <ChevronLeft size={14} />
         回大事件列表
       </button>
-      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-6">
+      <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,1fr)_auto]">
         <Title
           startDate={startDate}
           endDate={endDate}
