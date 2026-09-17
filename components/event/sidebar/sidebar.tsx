@@ -1,4 +1,5 @@
 import Details from "./details";
+import Report from "./report";
 import Tags from "./tags";
 
 interface SidebarProps {
@@ -25,6 +26,7 @@ export default function Sidebar({
         lastUpdatedAt={lastUpdatedAt}
       />
       <Tags tags={tags} />
+      <Report />
     </aside>
   );
 }
