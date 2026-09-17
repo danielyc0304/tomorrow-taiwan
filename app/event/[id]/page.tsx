@@ -1,3 +1,4 @@
+import Change from "@/components/event/change/change";
 import Hero from "@/components/event/hero/hero";
 import Sidebar from "@/components/event/sidebar/sidebar";
 
@@ -80,6 +81,7 @@ export default function Event() {
             contributor={contributor}
             lastUpdatedAt={lastUpdatedAt}
           />
+          <Change />
         </div>
       </div>
     </div>
