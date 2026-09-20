@@ -6,7 +6,7 @@ interface DateProps {
 
 export default function Date({ date }: DateProps) {
   return (
-    <div className="col-auto px-0 py-4 text-right font-heading text-sm leading-1.6 font-extrabold text-neutral-800 tabular-nums">
+    <div className="col-span-full px-0 pt-4 pb-0 text-left font-heading text-sm leading-1.6 font-extrabold text-neutral-800 tabular-nums md:col-auto md:px-0 md:py-4 md:text-right">
       {formatDate(date)}
     </div>
   );

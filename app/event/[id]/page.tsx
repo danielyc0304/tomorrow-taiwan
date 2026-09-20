@@ -75,7 +75,7 @@ export default function Event() {
         description={data.description}
       />
       <div className="border-t-2 border-t-divider">
-        <div className="mx-auto my-0 grid max-w-7xl grid-cols-[280px_minmax(0,1fr)] gap-8 px-6 pt-0 pb-8">
+        <div className="mx-auto my-0 grid max-w-7xl grid-cols-1 gap-8 px-6 pt-0 pb-8 xl:grid-cols-[280px_minmax(0,1fr)]">
           <Sidebar
             tags={data.tags}
             startDate={startDate}

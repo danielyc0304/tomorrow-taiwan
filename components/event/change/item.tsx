@@ -31,7 +31,7 @@ export default function Item({
 
   return (
     <div
-      className={`grid cursor-pointer grid-cols-[104px_22px_minmax(0,1fr)] gap-4 hover:bg-neutral-100 ${isOpen || isClicked ? "bg-neutral-100" : "bg-transparent"}`}
+      className={`grid cursor-pointer grid-cols-[22px_minmax(0,1fr)] gap-3 hover:bg-neutral-100 md:grid-cols-[104px_22px_minmax(0,1fr)] md:gap-4 ${isOpen || isClicked ? "bg-neutral-100" : "bg-transparent"}`}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
       onClick={() => setIsClicked(!isClicked)}
