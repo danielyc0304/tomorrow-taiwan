@@ -1,4 +1,5 @@
 import Items from "./items";
+import Submission from "./submission";
 import Title from "./title";
 
 interface ChangeProps {
@@ -20,6 +21,7 @@ export default function Change({ changes }: ChangeProps) {
       <Title />
       <div className="mb-2 h-0.5 bg-divider" />
       <Items changes={changes} />
+      <Submission />
     </div>
   );
 }
