@@ -10,6 +10,7 @@ const data: {
     date: string;
     type: string;
     contributor: "ai" | "reader";
+    reviewed?: boolean;
     title: string;
     description: string;
     sources: { name: string; url: string }[];
@@ -25,6 +26,7 @@ const data: {
       date: "2024-05-17",
       type: "media",
       contributor: "ai",
+      reviewed: true,
       title: "立法院審議國會改革法案，議場發生肢體衝突",
       description:
         "在院會表決程序中發生朝野肢體衝突，程序爭議成為後續釋憲的主要爭點之一，媒體與輿論對表決方式的討論擴大。",
@@ -81,7 +83,7 @@ export default function Event() {
             contributor={contributor}
             lastUpdatedAt={lastUpdatedAt}
           />
-          <Change />
+          <Change changes={data.changes} />
         </div>
       </div>
     </div>

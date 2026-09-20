@@ -22,7 +22,7 @@ const eslintConfig = defineConfig([
         {
           whitelist: [
             "btn(-(ghost|primary|secondary))?",
-            "tag(-(accent|outline))?",
+            "tag(-(accent|neutral|outline))?",
           ],
         },
       ],
