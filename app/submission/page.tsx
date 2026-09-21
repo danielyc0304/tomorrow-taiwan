@@ -1,4 +1,4 @@
-import Title from "@/components/submission/title/title";
+import Title from "@/components/submission/title";
 
 export default function Submission() {
   return (
