@@ -3,8 +3,12 @@
 import { Plus, Star } from "lucide-react";
 import { useState } from "react";
 
-export default function CTA() {
-  const [isTracking, setIsTracking] = useState<boolean>(false);
+interface CTAProps {
+  isTracking: boolean;
+}
+
+export default function CTA({ isTracking: tracking }: CTAProps) {
+  const [isTracking, setIsTracking] = useState<boolean>(tracking);
 
   return (
     <div className="flex w-[min(280px,100%)] flex-col items-stretch gap-2">

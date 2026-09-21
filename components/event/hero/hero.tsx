@@ -8,6 +8,7 @@ interface HeroProps {
   endDate: string;
   title: string;
   description: string;
+  isTracking: boolean;
 }
 
 export default function Hero({
@@ -15,6 +16,7 @@ export default function Hero({
   endDate,
   title,
   description,
+  isTracking,
 }: HeroProps) {
   return (
     <div className="mx-auto my-0 max-w-7xl px-6 pt-6 pb-8">
@@ -29,7 +31,7 @@ export default function Hero({
           title={title}
           description={description}
         />
-        <CTA />
+        <CTA isTracking={isTracking} />
       </div>
     </div>
   );
