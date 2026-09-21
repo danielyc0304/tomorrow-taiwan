@@ -1,3 +1,4 @@
+import Change from "@/components/event/change/change";
 import Hero from "@/components/event/hero/hero";
 import Sidebar from "@/components/event/sidebar/sidebar";
 
@@ -5,10 +6,12 @@ const data: {
   title: string;
   description: string;
   tags: string[];
+  isTracking: boolean;
   changes: {
     date: string;
     type: string;
     contributor: "ai" | "reader";
+    reviewed?: boolean;
     title: string;
     description: string;
     sources: { name: string; url: string }[];
@@ -19,11 +22,13 @@ const data: {
   description:
     "2024 年 5 月立法院審議國會改革法案，議場衝突與院外集會接連發生。法案三讀後由多個機關聲請釋憲，憲法法庭於同年 10 月作出判決，宣告多數新增條文違憲或部分違憲。",
   tags: ["action", "judiciary", "legislation", "media"],
+  isTracking: true,
   changes: [
     {
       date: "2024-05-17",
       type: "media",
       contributor: "ai",
+      reviewed: true,
       title: "立法院審議國會改革法案，議場發生肢體衝突",
       description:
         "在院會表決程序中發生朝野肢體衝突，程序爭議成為後續釋憲的主要爭點之一，媒體與輿論對表決方式的討論擴大。",
@@ -70,9 +75,10 @@ export default function Event() {
         endDate={endDate}
         title={data.title}
         description={data.description}
+        isTracking={data.isTracking}
       />
       <div className="border-t-2 border-t-divider">
-        <div className="mx-auto my-0 grid max-w-7xl grid-cols-[280px_minmax(0,1fr)] gap-8 px-6 pt-0 pb-8">
+        <div className="mx-auto my-0 grid max-w-7xl grid-cols-1 gap-8 px-6 pt-0 pb-8 xl:grid-cols-[280px_minmax(0,1fr)]">
           <Sidebar
             tags={data.tags}
             startDate={startDate}
@@ -80,6 +86,7 @@ export default function Event() {
             contributor={contributor}
             lastUpdatedAt={lastUpdatedAt}
           />
+          <Change changes={data.changes} />
         </div>
       </div>
     </div>
