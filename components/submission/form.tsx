@@ -47,7 +47,7 @@ export default function Form() {
     <FormProvider {...methods}>
       <form
         id="submission"
-        className="grid grid-cols-2 gap-6"
+        className="grid grid-cols-1 gap-6 md:grid-cols-2"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="field col-span-full">
