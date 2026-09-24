@@ -20,7 +20,7 @@ export default function Auth() {
           <span className="hidden text-[12px] text-neutral-700 md:block">
             登入後可投稿與追蹤事件
           </span>
-          <Link href="/login" className="btn btn-secondary">
+          <Link href="/login" className="btn btn-secondary text-text">
             登入
           </Link>
         </>
