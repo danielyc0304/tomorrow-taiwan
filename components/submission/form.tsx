@@ -1,6 +1,7 @@
 "use client";
 
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import Sources from "./sources";
 
 const eventOptions: { id: number; name: string }[] = [
   { id: 1, name: "2024 國會改革法案與立法院外集會" },
@@ -53,7 +54,7 @@ export default function Form() {
           <label htmlFor="event">要投稿到哪個事件</label>
           <select
             id="event"
-            {...(register("event"), { required: true })}
+            {...register("event", { required: true })}
             className="input"
           >
             {eventOptions.map((eventOption) => (
@@ -107,6 +108,7 @@ export default function Form() {
             className="input"
           ></textarea>
         </div>
+        <Sources />
       </form>
     </FormProvider>
   );
