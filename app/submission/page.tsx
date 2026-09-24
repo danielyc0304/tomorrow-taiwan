@@ -1,3 +1,4 @@
+import Actions from "@/components/submission/actions";
 import Form from "@/components/submission/form";
 import Title from "@/components/submission/title";
 
@@ -7,6 +8,7 @@ export default function Submission() {
       <Title />
       <div className="hr" />
       <Form />
+      <Actions />
     </section>
   );
 }
