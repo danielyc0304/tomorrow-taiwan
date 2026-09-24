@@ -21,7 +21,10 @@ const eslintConfig = defineConfig([
         "warn",
         {
           whitelist: [
-            "btn(-(ghost|primary|secondary))?",
+            "btn(-(ghost|icon|primary|secondary))?",
+            "field",
+            "hr",
+            "input",
             "tag(-(accent|neutral|outline))?",
           ],
         },
